@@ -1,0 +1,895 @@
+/* ===========================================================
+   HP OFFICE 1.0
+   PHẦN 2A - GIAO DIỆN CƠ BẢN
+=========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Roboto',sans-serif;
+
+    background:#eef3f8;
+
+    color:#333;
+
+    line-height:1.6;
+
+}
+
+/* ================= HEADER ================= */
+
+.hero{
+
+    height:420px;
+
+    background:url("../images/banner.jpg") center center/cover no-repeat;
+
+    position:relative;
+
+}
+
+.overlay{
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,74,143,.72);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.logo{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+}
+
+.hero h1{
+
+    margin-top:18px;
+
+    font-size:42px;
+
+    letter-spacing:2px;
+
+}
+
+.hero h2{
+
+    margin-top:8px;
+
+    font-size:28px;
+
+    font-weight:400;
+
+}
+
+.slogan{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    font-style:italic;
+
+}
+
+#clock{
+
+    margin-top:20px;
+
+    background:white;
+
+    color:#0056a6;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    font-size:20px;
+
+}
+
+.welcome{
+
+    margin-top:18px;
+
+    font-size:18px;
+
+}
+
+/* ================= MENU ================= */
+
+.menu{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    background:#0056a6;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+
+}
+
+.menu ul{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    list-style:none;
+
+}
+
+.menu li{
+
+    margin:0;
+
+}
+
+.menu a{
+
+    display:block;
+
+    padding:16px 20px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    background:#0b79db;
+
+}
+
+.menu i{
+
+    margin-right:6px;
+
+}
+
+/* ================= SEARCH ================= */
+
+.search-area{
+
+    width:92%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    text-align:center;
+
+}
+
+.search-area h2{
+
+    color:#0056a6;
+
+    margin-bottom:20px;
+
+}
+
+.search-area input{
+
+    width:70%;
+
+    padding:15px;
+
+    font-size:18px;
+
+    border:2px solid #0b79db;
+
+    border-radius:35px;
+
+    outline:none;
+
+}
+
+.search-area button{
+
+    padding:15px 30px;
+
+    margin-left:10px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:#0b79db;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.search-area button:hover{
+
+    background:#004f95;
+
+}/*=========================================================
+   THỐNG KÊ
+=========================================================*/
+
+.statistics{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:50px auto;
+
+}
+
+.statistics h2{
+
+    text-align:center;
+
+    color:#0056a6;
+
+    margin-bottom:30px;
+
+}
+
+.stat-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    gap:25px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+    background:#eaf5ff;
+
+}
+
+.stat-card i{
+
+    font-size:45px;
+
+    color:#0b79db;
+
+    margin-bottom:15px;
+
+}
+
+.stat-card h3{
+
+    margin-bottom:10px;
+
+    color:#004f95;
+
+}
+
+.stat-card p{
+
+    font-size:32px;
+
+    color:#ff5722;
+
+    font-weight:bold;
+
+}
+
+/*=========================================================
+   DANH MỤC CHỨC NĂNG
+=========================================================*/
+
+.services{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:60px auto;
+
+}
+
+.services h2{
+
+    text-align:center;
+
+    color:#0056a6;
+
+    margin-bottom:35px;
+
+}
+
+.service-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.service-card{
+
+    background:white;
+
+    text-decoration:none;
+
+    color:#333;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    transition:.35s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+
+    text-align:center;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+    background:#0b79db;
+
+    color:white;
+
+}
+
+.service-card i{
+
+    font-size:55px;
+
+    margin-bottom:18px;
+
+    color:#0b79db;
+
+}
+
+.service-card:hover i{
+
+    color:white;
+
+}
+
+.service-card h3{
+
+    margin-bottom:12px;
+
+}
+
+/*=========================================================
+   THÔNG BÁO
+=========================================================*/
+
+.notice{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:50px auto;
+
+}
+
+.notice h2{
+
+    color:#0056a6;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.notice-box{
+
+    background:white;
+
+    border-left:8px solid #0b79db;
+
+    border-radius:10px;
+
+    padding:30px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.notice-box ul{
+
+    margin-left:20px;
+
+}
+
+.notice-box li{
+
+    padding:10px 0;
+
+}
+
+/*=========================================================
+   HỒ SƠ MỚI
+=========================================================*/
+
+.recent-files{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:60px auto;
+
+}
+
+.recent-files h2{
+
+    color:#0056a6;
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+
+}
+
+th{
+
+    background:#0b79db;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+td{
+
+    padding:14px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+tr:hover{
+
+    background:#f2f8ff;
+
+}/*=========================================================
+    GIỚI THIỆU
+=========================================================*/
+
+.about{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:60px auto;
+
+}
+
+.about-content{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.about-content h2{
+
+    color:#0056a6;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+.about-content p{
+
+    font-size:18px;
+
+    line-height:32px;
+
+    text-align:justify;
+
+    margin-top:15px;
+
+}
+
+/*=========================================================
+    FOOTER
+=========================================================*/
+
+footer{
+
+    background:#004a8f;
+
+    color:white;
+
+    margin-top:80px;
+
+}
+
+.footer-container{
+
+    width:95%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    padding:50px 20px;
+
+}
+
+.footer-box h3{
+
+    margin-bottom:18px;
+
+    font-size:22px;
+
+}
+
+.footer-box p{
+
+    line-height:30px;
+
+}
+
+.footer-box i{
+
+    color:#ffd54f;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    padding:20px;
+
+    background:#00386d;
+
+    font-size:15px;
+
+}
+
+/*=========================================================
+    NÚT LÊN ĐẦU
+=========================================================*/
+
+#topBtn{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0b79db;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:none;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+#topBtn:hover{
+
+    background:#ff5722;
+
+    transform:scale(1.1);
+
+}
+
+/*=========================================================
+    HIỆU ỨNG
+=========================================================*/
+
+.hero{
+
+    animation:fadeDown 1.2s ease;
+
+}
+
+.statistics{
+
+    animation:fadeUp 1s ease;
+
+}
+
+.services{
+
+    animation:fadeUp 1.3s ease;
+
+}
+
+.notice{
+
+    animation:fadeUp 1.6s ease;
+
+}
+
+.recent-files{
+
+    animation:fadeUp 1.9s ease;
+
+}
+
+.about{
+
+    animation:fadeUp 2.2s ease;
+
+}
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================================
+    RESPONSIVE
+=========================================================*/
+
+@media(max-width:900px){
+
+.hero{
+
+    height:500px;
+
+}
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+.hero h2{
+
+    font-size:22px;
+
+}
+
+.logo{
+
+    width:100px;
+
+    height:100px;
+
+}
+
+.search-area input{
+
+    width:95%;
+
+}
+
+.search-area button{
+
+    margin-top:15px;
+
+}
+
+.menu ul{
+
+    flex-direction:column;
+
+}
+
+.menu a{
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+    height:550px;
+
+}
+
+.hero h1{
+
+    font-size:26px;
+
+}
+
+.hero h2{
+
+    font-size:18px;
+
+}
+
+.slogan{
+
+    font-size:16px;
+
+}
+
+#clock{
+
+    font-size:16px;
+
+}
+
+.welcome{
+
+    font-size:15px;
+
+}
+
+.stat-card{
+
+    padding:20px;
+
+}
+
+.service-card{
+
+    padding:25px;
+
+}
+
+.footer-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+}
+
+/*=========================================================
+    KẾT THÚC CSS HP OFFICE 1.0
+=========================================================*/
