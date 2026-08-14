@@ -278,11 +278,9 @@ async function taiBaiViet() {
                     <h3>
                         ${bai.TIEU_DE || "Không có tiêu đề"}
                     </h3>
-
                     <p class="post-date">
                       📅 ${bai.NGAY_DANG ? new Date(bai.NGAY_DANG).toLocaleDateString("vi-VN") : ""}
                     </p>
-
                     <p class="post-author">
                         ✍️ ${bai.TAC_GIA || ""}
                     </p>
