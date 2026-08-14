@@ -294,11 +294,131 @@ async function taiBaiViet() {
                 </div>
                        `;
 
-            const nutXem = article.querySelector(".btn-xem-bai");
+          const nutXem = article.querySelector(".btn-xem-bai");
 
-            nutXem.addEventListener("click", function() {
-                alert(bai.NOI_DUNG || "Bài viết chưa có nội dung.");
-            });
+nutXem.addEventListener("click", function() {
+
+    // Tạo cửa sổ đọc bài viết
+    const modal = document.createElement("div");
+
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.background = "rgba(0,0,0,0.65)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = "99999";
+    modal.style.padding = "20px";
+    modal.style.boxSizing = "border-box";
+
+    modal.innerHTML = `
+        <div style="
+            background:white;
+            width:90%;
+            max-width:900px;
+            max-height:90vh;
+            overflow-y:auto;
+            border-radius:18px;
+            padding:30px;
+            box-sizing:border-box;
+            box-shadow:0 10px 40px rgba(0,0,0,0.3);
+        ">
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:15px;
+                margin-bottom:20px;
+            ">
+
+                <h2 style="
+                    margin:0;
+                    color:#075aaa;
+                    font-size:28px;
+                ">
+                    📖 ${bai.TIEU_DE || "Bài viết"}
+                </h2>
+
+                <button class="dong-bai-viet" style="
+                    border:none;
+                    background:#075aaa;
+                    color:white;
+                    width:40px;
+                    height:40px;
+                    border-radius:50%;
+                    font-size:22px;
+                    cursor:pointer;
+                ">
+                    ×
+                </button>
+
+            </div>
+
+            <div style="
+                border-bottom:1px solid #ddd;
+                padding-bottom:15px;
+                margin-bottom:20px;
+                color:#555;
+                line-height:1.8;
+            ">
+                <div>🏷️ ${bai.DANH_MUC || "Tin tức"}</div>
+                <div>📅 ${bai.NGAY_DANG ? new Date(bai.NGAY_DANG).toLocaleDateString("vi-VN") : ""}</div>
+                <div>✍️ ${bai.TAC_GIA || ""}</div>
+            </div>
+
+            <div style="
+                font-size:18px;
+                line-height:1.8;
+                color:#333;
+                white-space:pre-line;
+            ">
+                ${bai.NOI_DUNG || "Bài viết chưa có nội dung."}
+            </div>
+
+            <div style="
+                text-align:center;
+                margin-top:30px;
+                padding-top:20px;
+                border-top:1px solid #ddd;
+            ">
+                <button class="dong-bai-viet" style="
+                    background:#075aaa;
+                    color:white;
+                    border:none;
+                    padding:12px 28px;
+                    border-radius:8px;
+                    font-size:16px;
+                    cursor:pointer;
+                ">
+                    Đóng bài viết
+                </button>
+            </div>
+
+        </div>
+    `;
+
+    // Nút đóng bài viết
+    modal.querySelectorAll(".dong-bai-viet").forEach(function(nut) {
+        nut.addEventListener("click", function() {
+            modal.remove();
+        });
+    });
+
+    // Bấm ra ngoài cửa sổ cũng đóng
+    modal.addEventListener("click", function(e) {
+        if (e.target === modal) {
+            modal.remove();
+        }
+    });
+
+    // Hiện cửa sổ
+    document.body.appendChild(modal);
+
+});
 
             khuVuc.appendChild(article);
 
