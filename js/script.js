@@ -288,9 +288,17 @@ async function taiBaiViet() {
                     <p class="post-description">
                         ${bai.NOI_DUNG || ""}
                     </p>
-
+<button class="btn-xem-bai">
+    📖 Xem bài viết
+</button>
                 </div>
-            `;
+                       `;
+
+            const nutXem = article.querySelector(".btn-xem-bai");
+
+            nutXem.addEventListener("click", function() {
+                alert(bai.NOI_DUNG || "Bài viết chưa có nội dung.");
+            });
 
             khuVuc.appendChild(article);
 
