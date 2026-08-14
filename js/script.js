@@ -228,3 +228,91 @@ window.addEventListener("load",function(){
 console.log("Website đã tải hoàn tất.");
 
 });
+
+// ========================================
+// HP OFFICE - ĐỌC BÀI VIẾT TỪ GOOGLE SHEET
+// ========================================
+
+const API_BAI_VIET =
+"https://script.google.com/macros/s/AKfycbxQ2Czfj-mFkXENSvPMSEzaimVe8Mkb9w02nNC40mJ7DGIM475KJ5mmbCX1mOH1Ovo5/exec";
+
+async function taiBaiViet() {
+
+    const khuVuc = document.getElementById("danhSachBaiViet");
+
+    if (!khuVuc) return;
+
+    khuVuc.innerHTML = "<p>⏳ Đang tải bài viết...</p>";
+
+    try {
+
+        const response = await fetch(API_BAI_VIET);
+
+        if (!response.ok) {
+            throw new Error("Không thể kết nối API");
+        }
+
+        const data = await response.json();
+
+        if (!data || data.length === 0) {
+            khuVuc.innerHTML =
+                "<p>📭 Chưa có bài viết nào.</p>";
+            return;
+        }
+
+        khuVuc.innerHTML = "";
+
+        data.forEach(function(bai) {
+
+            const article = document.createElement("article");
+
+            article.className = "post-card";
+
+            article.innerHTML = `
+                <div class="post-content">
+
+                    <span class="post-category">
+                        ${bai.DANH_MUC || "Tin tức"}
+                    </span>
+
+                    <h3>
+                        ${bai.TIEU_DE || "Không có tiêu đề"}
+                    </h3>
+
+                    <p class="post-date">
+                        📅 ${bai.NGAY_DANG || ""}
+                    </p>
+
+                    <p class="post-author">
+                        ✍️ ${bai.TAC_GIA || ""}
+                    </p>
+
+                    <p class="post-description">
+                        ${bai.NOI_DUNG || ""}
+                    </p>
+
+                </div>
+            `;
+
+            khuVuc.appendChild(article);
+
+        });
+
+    } catch (error) {
+
+        console.error("Lỗi tải bài viết:", error);
+
+        khuVuc.innerHTML = `
+            <p>
+                ⚠️ Không thể tải bài viết.
+                Vui lòng kiểm tra kết nối.
+            </p>
+        `;
+    }
+}
+
+
+// Tự động tải bài viết khi trang mở
+document.addEventListener("DOMContentLoaded", function() {
+    taiBaiViet();
+});
