@@ -280,7 +280,7 @@ async function taiBaiViet() {
                     </h3>
 
                     <p class="post-date">
-                        📅 ${bai.NGAY_DANG || ""}
+                      📅 ${bai.NGAY_DANG ? new Date(bai.NGAY_DANG).toLocaleDateString("vi-VN") : ""}
                     </p>
 
                     <p class="post-author">
